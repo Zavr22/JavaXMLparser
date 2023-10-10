@@ -1,0 +1,8 @@
+<commercial_offer>
+    <offer_name>Commercial offer 1</offer_name>
+    <product>
+        <product_name>Optoma T500</product_name>
+        <product_price>100</product_price>
+    </product>
+    <offer_price>200</offer_price>
+</commercial_offer>
