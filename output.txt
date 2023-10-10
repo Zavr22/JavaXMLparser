@@ -1,1 +1,0 @@
-CommercialOffer{commercialOfferName='Commercial offer 1', commercialOfferPrice='200', products=[Product{name='Optoma T500', price=100}]}

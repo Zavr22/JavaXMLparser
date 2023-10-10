@@ -1,9 +1,21 @@
-import java.lang.reflect.Array;
+package bsuir.labwork.Labwork.models;
+
+import bsuir.labwork.Labwork.exceptions.InvalidCommercialOfferException;
+import jakarta.persistence.*;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-class CommercialOffer {
+@Getter
+@Entity
+@Table(name = "commercial_offers")
+public class CommercialOffer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
     private static final String COMMERCIAL_OFFER_NAME_PATTERN= "[A-Za-z\\s\\d]+";
     private static final String COMMERCIAL_OFFER_PRODUCT_NAME_PATTERN = "[A-Za-z\\s\\d]+";
     private static final String COMMERCIAL_OFFER_PRODUCT_PRICE_PATTERN = "\\d+";
@@ -12,6 +24,7 @@ class CommercialOffer {
     private String commercialOfferName;
     private String commercialOfferPrice;
     private List<Product> products;
+
 
     public CommercialOffer(String commercialOfferName, String commercialOfferPrice, List<Product> products) {
         this.commercialOfferName = commercialOfferName;
@@ -33,24 +46,12 @@ class CommercialOffer {
                 '}';
     }
 
-    public String getCommercialOfferName() {
-        return commercialOfferName;
-    }
-
     public void setCommercialOfferName(String commercialOfferName) {
         this.commercialOfferName = commercialOfferName;
     }
 
-    public String getCommercialOfferPrice() {
-        return commercialOfferPrice;
-    }
-
     public void setCommercialOfferPrice(String commercialOfferPrice) {
         this.commercialOfferPrice = commercialOfferPrice;
-    }
-
-    public List<Product> getProducts() {
-        return products;
     }
 
     public void setProducts(List<Product> products) {
