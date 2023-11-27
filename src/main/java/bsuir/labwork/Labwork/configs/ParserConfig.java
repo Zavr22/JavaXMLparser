@@ -1,17 +1,12 @@
 package bsuir.labwork.Labwork.configs;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class ParserConfig {
     private static ParserConfig instance;
 
-    private String commercialOffersPath;
+    private String eventsPath;
 
     private ParserConfig() {
-        this.commercialOffersPath = "/Users/mihailkulik/Documents/3 курс/ПКП/XMLParser/commercial_offers.xml";
+        this.eventsPath = "/Users/mihailkulik/Documents/3year/PKP/XMLParser/events.xml";
     }
 
     public static ParserConfig getInstance() {
@@ -19,5 +14,9 @@ public class ParserConfig {
             instance = new ParserConfig();
         }
         return instance;
+    }
+
+    public String getEventsPath() {
+        return eventsPath;
     }
 }

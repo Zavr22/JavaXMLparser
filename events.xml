@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="$LOCAL_SCHEMA$"
+        xsi:noNamespaceSchemaLocation="events.xsd">
+    <event>
+        <event_name>Event 1</event_name>
+        <organizer_name>rrr</organizer_name>
+        <event_price>200</event_price>
+    </event>
+    <event>
+        <event_name>Event 2</event_name>
+        <organizer_name>rrev</organizer_name>
+        <event_price>2reec</event_price>
+    </event>
+    <event>
+        <event_name>Event 3</event_name>
+        <organizer_name>rfgvvv</organizer_name>
+        <event_price>500</event_price>
+    </event>
+</events>

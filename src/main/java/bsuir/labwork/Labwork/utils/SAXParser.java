@@ -1,8 +1,7 @@
 package bsuir.labwork.Labwork.utils;
 
 import bsuir.labwork.Labwork.interfaces.Parser;
-import bsuir.labwork.Labwork.models.CommercialOffer;
-import bsuir.labwork.Labwork.models.Product;
+import bsuir.labwork.Labwork.models.Event;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -12,32 +11,28 @@ import java.util.List;
 
 public class SAXParser implements Parser {
 
-    public List<CommercialOffer> parseCommercialOffers(String filePath) throws Exception {
-        List<CommercialOffer> commercialOffers = new ArrayList<>();
+    public List<Event> parseEvents(String filePath) throws Exception {
+        List<Event> events = new ArrayList<>();
         SAXParserFactory factory = SAXParserFactory.newInstance();
         javax.xml.parsers.SAXParser saxParser = factory.newSAXParser();
 
         DefaultHandler handler = new DefaultHandler() {
-            CommercialOffer commercialOffer;
+            Event event;
 
-            Product product;
+
             String currentElement;
 
 
             public void startElement(String uri, String localName, String qName, Attributes attributes) {
                 currentElement = qName;
-                if ("commercial_offer".equals(currentElement)) {
-                    commercialOffer = new CommercialOffer();
-                } else if ("product".equals(currentElement)) {
-                    product = new Product();
+                if ("event".equals(currentElement)) {
+                    event = new Event();
                 }
             }
 
             public void endElement(String uri, String localName, String qName) {
-                if ("commercial_offer".equals(qName)) {
-                    commercialOffers.add(commercialOffer);
-                } else if ("product".equals(qName)) {
-                    commercialOffer.getProducts().add(product);
+                if ("event".equals(qName)) {
+                    events.add(event);
                 }
                 currentElement = "";
             }
@@ -46,19 +41,17 @@ public class SAXParser implements Parser {
                 String value = new String(ch, start, length).trim();
                 if (value.isEmpty()) return;
 
-                if ("offer_name".equals(currentElement)) {
-                    commercialOffer.setCommercialOfferName(value);
-                } else if ("product_name".equals(currentElement)) {
-                    product.setName(value);
-                } else if ("product_price".equals(currentElement)) {
-                    product.setPrice(value);
-                } else if ("offer_price".equals(currentElement)) {
-                    commercialOffer.setCommercialOfferPrice(value);
+                if ("event_name".equals(currentElement)) {
+                    event.setEventName(value);
+                } else if ("organizer_name".equals(currentElement)) {
+                   event.setOrganizerName(value);
+                } else if ("event_price".equals(currentElement)) {
+                    event.setEventPrice(value);
                 }
             }
         };
 
         saxParser.parse(filePath, handler);
-        return commercialOffers;
+        return events;
     }
 }

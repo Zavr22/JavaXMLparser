@@ -1,7 +1,7 @@
 package bsuir.labwork.Labwork;
 
 import bsuir.labwork.Labwork.configs.ParserConfig;
-import bsuir.labwork.Labwork.models.CommercialOffer;
+import bsuir.labwork.Labwork.models.Event;
 import bsuir.labwork.Labwork.factories.DOMParserFactory;
 import bsuir.labwork.Labwork.interfaces.Parser;
 import bsuir.labwork.Labwork.interfaces.ParserFactory;
@@ -23,31 +23,31 @@ public class Main {
 
         try {
             ParserConfig config = ParserConfig.getInstance();
-            String commercialOffersPath = config.getCommercialOffersPath();
+            String eventsPath = config.getEventsPath();
 
-            List<CommercialOffer> commercialOffersDom = domParser.parseCommercialOffers(commercialOffersPath);
-            List<CommercialOffer> commercialOffersSax = saxParser.parseCommercialOffers(commercialOffersPath);
+            List<Event> eventsDom = domParser.parseEvents(eventsPath);
+            List<Event> eventsSaxes = saxParser.parseEvents(eventsPath);
 
-            writeOffersToFile(commercialOffersDom);
-            validateAndPrintOffers(commercialOffersSax);
+            writeEventsToFile(eventsDom);
+            validateAndPrintEvents(eventsSaxes);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static void validateAndPrintOffers(List<CommercialOffer>  commercialOffers) {
-        for (CommercialOffer commercialOffer : commercialOffers) {
+    private static void validateAndPrintEvents(List<Event> events) {
+        for (Event event : events) {
             try {
-                commercialOffer.validate();
-                System.out.println("Valid commercialOffer: " + commercialOffer);
+                event.validate();
+                System.out.println("Valid event: " + event);
             } catch (Exception e) {
-                System.out.println("Invalid commercialOffer detected: " + commercialOffer + " Reason: " + e.getMessage());
+                System.out.println("Invalid event detected: " + event + " Reason: " + e.getMessage());
             }
         }
     }
 
-    private static void writeOffersToFile(List<CommercialOffer> commercialOffers) throws IOException {
-        List<String> outputLines = commercialOffers.stream().map(CommercialOffer::toString).collect(Collectors.toList());
+    private static void writeEventsToFile(List<Event> events) throws IOException {
+        List<String> outputLines = events.stream().map(Event::toString).collect(Collectors.toList());
         Files.write(Paths.get("output.txt"), outputLines);
     }
 }

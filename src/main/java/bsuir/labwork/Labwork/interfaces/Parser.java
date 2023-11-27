@@ -1,11 +1,11 @@
 package bsuir.labwork.Labwork.interfaces;
 
-import bsuir.labwork.Labwork.models.CommercialOffer;
+import bsuir.labwork.Labwork.models.Event;
 
 
 import java.util.List;
 
 public interface Parser {
-    List<CommercialOffer> parseCommercialOffers(String filePath) throws Exception;
+    List<Event> parseEvents(String filePath) throws Exception;
 }
 

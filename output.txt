@@ -1,11 +1,3 @@
-CommercialOffer{commercialOfferName='Commercial offer 1', commercialOfferPrice='200', products=[Product{name='Optoma T500', price=100}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 3', commercialOfferPrice='500', products=[Product{name='Optoma T600', price=500}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=300}]}
-CommercialOffer{commercialOfferName='Commercial offer 2', commercialOfferPrice='300', products=[Product{name='Optoma T400', price=dfln dflnvdnv fljnvjln}]}
+Event{eventName='Event 1', eventPrice='200', organizerName='rrr'}
+Event{eventName='Event 2', eventPrice='2reec', organizerName='rrev'}
+Event{eventName='Event 3', eventPrice='500', organizerName='rfgvvv'}
